@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_user,account.move user,account.model_account_move,base.group_user,1,1,1,1
+access_account_move_manager,account.move manager,account.model_account_move,account.group_account_manager,1,1,1,1
+access_paper_size_wizard,paper.size.wizard,model_paper_size_wizard,,1,1,1,1
+access_sale_order_user,sale.order user,model_sale_order,base.group_user,1,1,1,1
+access_product_template_user,access_product_template_user,model_product_template,base.group_user,1,1,1,1

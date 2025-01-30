@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- Catalog Generator Form View -->
+        <record id="view_catalog_generator_form" model="ir.ui.view">
+            <field name="name">catalog.generator.form</field>
+            <field name="model">catalog.generator</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="parent_id" required="1" />
+                        <field name="catalog_file" filename="file_name" readonly="1" />
+                    </group>
+                    <footer>
+                        <button name="generate_catalog" string="Generate Catalog" type="object" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Catalog Generator Action -->
+        <record id="action_catalog_generator" model="ir.actions.act_window">
+            <field name="name">Product Catalog Generator</field>
+            <field name="res_model">catalog.generator</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Catalog Generator Menu -->
+        <menuitem
+            id="menu_catalog_generator"
+            name="Catalog Generator"
+            action="action_catalog_generator"
+            sequence="10"/>
+    </data>
+</odoo>

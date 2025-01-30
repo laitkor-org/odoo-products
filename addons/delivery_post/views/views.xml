@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="page_template_delivery" name="Track your order">
+        <link rel="stylesheet" type="text/css" href="/delivery_post/static/src/css/order_tracking_page.css"/>
+        <t t-call="website.layout">
+            <div class="trackContainer">
+              <h4 id="headingTrack">Track Your Order</h4>
+              <h4 id="headingFetch" style="display:none;">Fetching your order tracking details, please wait...</h4>
+              
+              <div id="loader" class="loader" style="display:none;"></div>
+              
+              <form id="trackForm" class="consignmentSubmitForm" action="/track" method="POST">
+                <div class="columnTrack">
+                  <h6 class="w-50 mb-0">Enter consignment number</h6>
+                  <input class="w-50" name="consignment_number" type="text" required="true" autocomplete="off"/>
+                </div>
+                <div class="btnsTrack">
+                  <button class="btnSubmit" type="submit">Track</button>
+                  <button class="btnReset" type="reset">Clear</button>
+                </div>
+              </form>
+            </div>
+        </t>
+    </template>
+  </data>
+</odoo>

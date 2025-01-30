@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- ###########    View of Draft invoice QR code  ############ -->
+
+    <record id="view_account_move_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//group[@id='header_right_group']" position="inside"> -->
+            <xpath expr="//header" position="inside">
+                <button name="generate_qr_code" type="object" string="Generate QR Code" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//group[@id='header_right_group']" position="inside">
+                <field name="qr_code" widget="image" class="oe_stat_button" options="{'thumbnail_size': [75, 75]}" style="width: 100px; height: 100px; margin-top: 5px;"/>
+            </xpath>
+        </field>
+    </record>
+
+<!-- ###########    View of Every Product's QR code Model  ############ -->
+
+    <record id="view_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='uom_po_id']" position="after">
+                <field name="qr_code" widget="image" class="oe_stat_button" options="{'thumbnail_size': [75, 75]}" style="width: 80px; height: 80px; margin-top: 5px;"/>
+            </xpath>
+        </field>
+    </record>
+
+<!-- ############    For Show QR code on Report  ############ -->
+    <template id="invoice_cops" inherit_id="account.report_invoice_document">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <t t-if="o.qr_code">
+            <div style="position: absolute; top: 60px; right: 20px;">
+            <img t-att-src="'data:image/png;base64,' + o.qr_code.decode('utf-8')" alt="QR Code"
+                                style="width:auto;height:80px; vertical-align: text-top;"/>
+            </div>
+        </t>
+    </xpath>
+    </template>
+
+ <!-- ########### report_shipping_label    #################### -->
+<!-- 
+   <template id="report_shipping_label2">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <div class="address-box" style="width: 50%; display: inline-block; vertical-align: top;">
+                        <strong>From:</strong>
+                        <div t-field="o.company_id.partner_id.name"/>
+                        <div t-field="o.company_id.partner_id.street"/>
+                        <div t-field="o.company_id.partner_id.city"/>
+                        <div t-field="o.company_id.partner_id.zip"/>
+                        <div t-field="o.company_id.partner_id.country_id.name"/>
+                    </div>
+                    <div class="address-box" style="width: 50%; display: inline-block; vertical-align: top;">
+                        <strong>To:</strong>
+                        <div t-field="o.partner_id.name"/>
+                        <div t-field="o.partner_id.street"/>
+                        <div t-field="o.partner_id.city"/>
+                        <div t-field="o.partner_id.zip"/>
+                        <div t-field="o.partner_id.country_id.name"/>
+                    </div>
+                    <br/>
+                </t>
+            </div>
+        </t>
+    </template> -->
+<!-- 
+    <report
+    id="report_shipping_label_action"
+    string="Shipping Label"
+    model="sale.order"
+    report_type="qweb-pdf"
+    name="stock_identifier_data_capture.report_shipping_label"
+    file="stock_identifier_data_capture.report_shipping_label"
+/> -->
+
+<template id="report_shipping_label">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-foreach="docs.order_ids" t-as="order">
+                <table class="table table-sm mt16 mb16" style="border: 1px solid #000; table-layout: fixed; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <!-- From Address Column -->
+                            <td style="border-right: 1px solid #000; padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_from">
+                                    <strong>From:</strong>
+                                    <p t-field="order.company_id.partner_id.name"/>
+                                    <p t-field="order.company_id.partner_id.street"/>
+                                    <p t-field="order.company_id.partner_id.city"/>
+                                    <p t-field="order.company_id.partner_id.zip"/>
+                                    <p t-field="order.company_id.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                            <!-- To Address Column -->
+                            <td style="padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_to">
+                                    <strong>To:</strong>
+                                    <p t-field="order.partner_id.name"/>
+                                    <p t-field="order.partner_id.street"/>
+                                    <p t-field="order.partner_id.city"/>
+                                    <p t-field="order.partner_id.zip"/>
+                                    <p t-field="order.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </div>
+    </t>
+</template>
+
+<template id="report_shipping_label_a5">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-foreach="docs.order_ids" t-as="order">
+                <table class="table table-sm mt16 mb16" style="border: 1px solid #000; table-layout: fixed; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <!-- From Address Column -->
+                            <td style="border-right: 1px solid #000; padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_from">
+                                    <strong>From:</strong>
+                                    <p t-field="order.company_id.partner_id.name"/>
+                                    <p t-field="order.company_id.partner_id.street"/>
+                                    <p t-field="order.company_id.partner_id.city"/>
+                                    <p t-field="order.company_id.partner_id.zip"/>
+                                    <p t-field="order.company_id.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                            <!-- To Address Column -->
+                            <td style="padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_to">
+                                    <strong>To:</strong>
+                                    <p t-field="order.partner_id.name"/>
+                                    <p t-field="order.partner_id.street"/>
+                                    <p t-field="order.partner_id.city"/>
+                                    <p t-field="order.partner_id.zip"/>
+                                    <p t-field="order.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </div>
+    </t>
+</template>
+
+<template id="report_shipping_label_letter">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-foreach="docs.order_ids" t-as="order">
+                <table class="table table-sm mt16 mb16" style="border: 1px solid #000; table-layout: fixed; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <!-- From Address Column -->
+                            <td style="border-right: 1px solid #000; padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_from">
+                                    <strong>From:</strong>
+                                    <p t-field="order.company_id.partner_id.name"/>
+                                    <p t-field="order.company_id.partner_id.street"/>
+                                    <p t-field="order.company_id.partner_id.city"/>
+                                    <p t-field="order.company_id.partner_id.zip"/>
+                                    <p t-field="order.company_id.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                            <!-- To Address Column -->
+                            <td style="padding: 10px; width: 50%;">
+                                <div class="o_address_box o_address_to">
+                                    <strong>To:</strong>
+                                    <p t-field="order.partner_id.name"/>
+                                    <p t-field="order.partner_id.street"/>
+                                    <p t-field="order.partner_id.city"/>
+                                    <p t-field="order.partner_id.zip"/>
+                                    <p t-field="order.partner_id.country_id.name"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </div>
+    </t>
+</template>
+
+    <record id="view_sale_order_list_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+            <header>
+                <button name="action_open_popup" type="object" string="Shipping Label" class="btn-primary" />
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_template_tree_view" model="ir.ui.view">
+        <field name="name">product.template.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_generate_barcode_for_selected" type="object" string="Generate Barcodes"
+                        class="oe_highlight" icon="fa-barcode"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="view_paper_size_wizard_form" model="ir.ui.view">
+    <field name="name">paper.size.wizard.form</field>
+    <field name="model">paper.size.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Shipping Label">
+            <group>
+                <field name="paper_size"/>
+                <field name="order_ids" widget="many2many_tags"/>
+            </group>
+            <footer>
+                <button string="Confirm" type="object" name="generate_report" class="btn-primary"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="action_shipping_label_wizard" model="ir.actions.act_window">
+    <field name="name">Shipping Label</field>
+    <field name="res_model">paper.size.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="view_paper_size_wizard_form"/>
+    <field name="target">new</field>
+</record>
+</odoo>

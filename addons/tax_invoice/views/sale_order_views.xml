@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <button name="call_pincode_api_and_generate_invoice"
+                        string="Generate Tax Invoice"
+                        type="object"
+                        class="btn-primary"/>
+            </header>
+        </field>
+    </record>
+
+    <record id="view_order_form_tax_number" model="ir.ui.view">
+        <field name="name">sale.order.form.tax.number</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_reference_india_post']" position="after">
+                <field name="tax_number"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="tax_number" string="Tax Invoice Number"/>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="tax_number" string="Tax Invoice Number"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

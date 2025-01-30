@@ -1,0 +1,49 @@
+<odoo>
+    <template id="barcode_report_template">
+        <t t-call="web.html_container">
+            <div class="page">
+                <div class="table table-sm mt8 mb8" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                    <t t-foreach="docs" t-as="product">
+                        <t t-set="product_id" t-value="product.id"/>
+                        <t t-set="quantity" t-value="product_quantities.get(str(product_id), {}).get('barcode_qty', 1)"/>
+                        <t t-if="product">
+                            <t t-foreach="range(quantity)" t-as="i">
+                                <table class="table table-sm" style="width: 42%; margin-top: 20px; margin-right:25px; border: 1px solid #000; display: inline-block; vertical-align: top; height: 150px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 10px; width: 55%; vertical-align: top;">
+                                                <div class="o_address_box o_address_from">
+                                                    <strong class="company-name" style="display: block; margin-bottom: 15px; text-align: center">rootsraja.in</strong>
+                                                    <t t-set="variant_name" t-value="product_quantities.get(str(product_id), {}).get('variant_name', '')"/>
+                                                    <t t-set="product_name" t-value="product_quantities.get(str(product_id), {}).get('product_name', '')"/>
+                                                    <t t-if="variant_name">
+                                                        <p t-esc="product_name + ' ' + variant_name" class="product-name" style="display: block; margin-bottom: 15px; font-size: 16px;"></p>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <p t-esc="product_name" class="product-name" style="display: block; margin-bottom: 15px; font-size: 16px;"></p>
+                                                    </t>
+                                                    <div class="contact-details" style="font-size: 12px; margin-bottom: 2px;">
+                                                        <div>Contact: +91 9209831369</div>
+                                                        <div>Email: support@rootsraja.in</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 0; width: 40%;">
+                                                <div class="o_barcode_box" style="text-align: left;">
+                                                    <t t-set="barcode_image" t-value="product_quantities.get(str(product_id), {}).get('barcode_image', '')"/>
+                                                    <img t-att-src="'data:image/png;base64,' + barcode_image"
+                                                         alt="Product Barcode" 
+                                                         style="-webkit-transform: rotate(-90deg); width: 95%; height: auto; max-height: 95%; object-fit: contain;" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

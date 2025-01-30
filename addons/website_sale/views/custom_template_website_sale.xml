@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="product_short_fields" inherit_id="website_sale.product" name="custom_fields_short" priority="20">
+            <xpath expr="//div[@id='product_details']" position="inside">
+                <t t-if="product.product_classifier_type == 'plant'">
+                    <p class="mb-3">
+                        <t t-if="product.scientific_name">
+                            <div class="mb-1">
+                                <span class="bold-text">Scientific Name - </span>
+                                <span>
+                                    <t t-esc="product.scientific_name"/>
+                                </span>
+                            </div>
+                        </t>                      
+                        <t t-if="product.common_names">
+                            <div class="mb-1">
+                                <span class="bold-text">Common names known by - </span>
+                                <span>
+                                    <t t-esc="product.common_names"/>
+                                </span>
+                            </div>
+                        </t> 
+                    </p>
+                    <div class="icon-container row">
+                        <div class="col-md-6">
+                            <div class="product-icons d-flex gap-3">
+                                <i class="fa-solid fa-sun"></i>
+                                <div class="popover-content">
+                                    <t t-if="product.amount_of_sunlight">
+                                        <p class="m-0">Sunlight : <t t-esc="product.amount_of_sunlight"/></p>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-icons d-flex gap-3">
+                                <i class="fa-solid fa-droplet"></i>
+                                <div class="popover-content">
+                                    <t t-if="product.water_frequency">
+                                        <p class="m-0">Frequency of water : <t t-esc="product.water_frequency"/></p>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-icons d-flex gap-3">
+                                <i class="fa-brands fa-pagelines"></i>
+                                <div class="popover-content">
+                                    <t t-if="product.soil_type">
+                                        <p class="m-0">Soil type : <t t-esc="product.soil_type"/></p>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-icons d-flex gap-3">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div class="popover-content">
+                                    <t t-if="product.native_place">
+                                        <p class="m-0">Native to : <t t-esc="product.native_place"/></p>
+                                    </t> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    <template id="product_long_fields" inherit_id="website_sale.product" name="custom_fields_long" priority="20">
+        <xpath expr="//div[@id='product_full_description']" position="before">
+            <div class="container">
+                <h3 class="description-title">Product Specifications</h3>
+                <button class="accordionProductFields activeProductField" id="descDefaultSelected">Description</button>
+                <div class="panelProductFields" style="max-height: 100%; padding: 10px 15px; border-width: 2px 0px; border-color: transparent; border-style: solid;">
+                    <p><t t-esc="product.detailed_desc"/></p>
+                </div>
+                <t t-if="product.product_classifier_type != 'pot'">
+                    <button class="accordionProductFields">Benefits</button>
+                    <div class="panelProductFields">
+                        <p><t t-esc="product.benefits_of_plants"/></p>
+                    </div>
+                    <button class="accordionProductFields">Instructions for care</button>
+                    <div class="panelProductFields">
+                        <p><t t-esc="product.care_instructions"/></p>
+                    </div>
+                </t>
+                <t t-if="product.product_classifier_type == 'plant'">
+                    <button class="accordionProductFields">FAQs</button>
+                    <div class="panelProductFields">
+                        <p><t t-esc="product.faqs"/></p>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="giftOptionAndMessage">
+        <hr/>
+        <div class="form-group w-100">
+            <input type="checkbox" name="custom_checkbox_field" class="custom_checkbox_field"/>
+            <span class="m-1">This order contains a gift</span>
+            <input type="text" id="custom_input_field_gift_message" placeholder="Enter message on the gift" name="custom_input_field_gift_message" class="form-control d-none giftMessageInput mt-2 w-100"/>
+        </div>
+    </template>
+
+    <template id="gift_option" inherit_id="website_sale.product" name="gift_option_checkbox" priority="20">
+        <xpath expr="//div[@id='product_option_block']" position="after">
+            <div class="form-group mt-3 w-100">
+                <label for="custom_input_field_pincode" class="mb-1">Check Delivery</label>
+                <div class="d-flex">
+                    <input type="text" id="custom_input_field_pincode" placeholder="Pincode" name="custom_input_field_pincode" class="form-control pincodeInput"/>
+                    <button class="btn_check_delivery">Check</button>
+                </div>
+                <p class="helperText mt-1 invisible">Pincode Serviceability</p>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="custom_bar" inherit_id="website.layout" name="Custom Layout">
+        <xpath expr="//div[@id='o_main_nav']" position="before">
+            <div class="custom-header-bar">
+                <div class="w-full">
+                    <p>Free shipping on all orders!</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    </data>
+</odoo>

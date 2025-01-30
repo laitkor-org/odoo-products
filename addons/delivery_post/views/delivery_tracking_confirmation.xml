@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="tracking_success" name="Tracking Information">
+      <t t-call="website.layout">
+        <div class="container my-5">
+          <t t-if="table_summary">
+            <h2>Order Tracking Details</h2>
+            <table class="table table-sm table-bordered mt-4">
+              <t t-raw="table_summary"/>
+            </table>
+          </t>
+          <t t-if="table_details">
+            <h3 class="mt-5">Tracking Summary</h3>
+            <table class="table table-bordered my-4">
+                <t t-raw="table_details"/>
+            </table>
+          </t>
+        </div>
+      </t>
+    </template>
+    <template id="tracking_failure" name="Tracking Information">
+      <t t-call="website.layout">
+        <div class="container my-5 vh-100">
+          <h2 class="text-center my-5 py-5">Something went wrong.<br/>Please try again.</h2>
+        </div>
+      </t>
+    </template>
+  </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Access Control for rating.rating Model -->
+    <record id="access_rating_rating" model="ir.model.access">
+        <field name="name">rating.rating.access</field>
+        <field name="model_id" ref="rating.model_rating_rating"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+</odoo>

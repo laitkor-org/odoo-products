@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_shipping_label_lucknow_pdf" model="ir.actions.report">
+            <field name="name">Shipping Label</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">delivery_post.report_shipping_label_lucknow</field>
+            <field name="report_file">delivery_post.report_shipping_label_lucknow</field>
+            <field name="print_report_name">"Shipping Label"</field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

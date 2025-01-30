@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <function name="write" model="ir.model.data">
+            <value model="ir.model.data" search="[('name', '=', 'mail_template_gift_card'), ('module', '=', 'loyalty')]"/>
+            <value eval="{'noupdate': False}" />
+        </function>
+
+        <record id="loyalty.mail_template_gift_card" model="mail.template">
+            <field name="subject">Here's your Gift Card at {{ object.company_id.name }}</field>
+            <field name="body_html" type="html">
+                <div style="background: #ffffff">
+                    <div style="margin:0px; font-size:24px; font-family:arial, 'helvetica neue', helvetica, sans-serif; line-height:36px; color:#333333; text-align: center">
+                        Here is your gift card!
+                    </div>
+                    <div style="padding-top:20px; padding-bottom:20px">
+                        <img src="/loyalty/static/img/gift_card.png" style="display:block; border:0; outline:none; text-decoration:none; margin:auto;" width="300"/>
+                        <div style="padding:0; margin:0px; text-align:center; padding-top:15px;">
+                            <p style="margin:0px; font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif; line-height:21px; font-weight:bold;">
+                                <strong>Gift Card Code</strong>
+                            </p>
+                            <p style="margin:0px; font-size:25px;font-family:arial, 'helvetica neue', helvetica, sans-serif; line-height:38px;" t-out="object.code or ''">4f10-15d6-41b7-b04c-7b3e</p>
+                        </div>
+                    </div>
+                    <div style="padding:0; margin:0px; padding-top:15px; padding-bottom:15px; text-align:center; background-color:#efefef;">
+                        <h3 style="margin:0px; line-height:48px; font-family:arial, 'helvetica neue', helvetica, sans-serif; font-size:30px; font-style:normal; font-weight:normal; color:#333333; text-align:center">
+                            <strong t-out="format_amount(object.points, object.currency_id) or ''">$ 150.00</strong></h3>
+                    </div>
+                    <!-- <div style="padding:0; margin:0px; padding-top:35px; padding-bottom:35px; background-color:#efefef; text-align:center;">
+                        <p style="margin:0px; font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif; line-height:21px; font-weight:bold;">
+                            <strong>Gift Card Code</strong>
+                        </p>
+                        <p style="margin:0px; font-size:25px;font-family:arial, 'helvetica neue', helvetica, sans-serif; line-height:38px; color:#A9A9A9" t-out="object.code or ''">4f10-15d6-41b7-b04c-7b3e</p>
+                    </div> -->
+                    <div t-if="object.expiration_date" style="padding:0; margin:0px; padding-top:20px; padding-bottom:20px; text-align:center;">
+                        <h3 style="margin:0px; line-height:17px; font-family:arial, 'helvetica neue', helvetica, sans-serif; font-size:14px; font-style:normal; font-weight:bold; text-align:center">Card expires on <t t-out="format_date(object.expiration_date) or ''">05/05/2021</t></h3>
+                    </div>
+                    <div style="padding:15px; margin:0px; text-align:center;">
+                        <span style="background-color:#999999; display:inline-block; width:auto; border-radius:5px;">
+                            <a t-attf-href="{{ object.get_base_url() }}/shop" target="_blank" style="text-decoration:none; font-family:arial, 'helvetica neue', helvetica, sans-serif; font-size:18px; color:#FFFFFF; border-style:solid; border-color:#999999; border-width:10px 15px; display:inline-block; background-color:#999999; border-radius:5px; font-weight:bold; font-style:normal; line-height:26px; width:auto; text-align:center">Visit Rootsraja to use it!</a>
+                        </span>
+                    </div>
+                    <div class="row" style="padding-top:25px; padding-bottom:20px;">
+                        <div class="col-12" style="text-align:left;">
+                            <h5>Instructions</h5>
+                            <ul>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    Visit our website (<a href="https://www.rootsraja.in" target="_blank">www.rootsraja.in</a>).
+                                </li>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    Select your favorite items from the listed products.
+                                </li>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    At checkout, enter the gift card code to redeem.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:0; padding-bottom:20px;">
+                        <div class="col-12" style="text-align:left;">
+                            <h5>Terms and Conditions</h5>
+                            <ul>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    Valid for 1 month from the date of issue.
+                                </li>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    Non-refundable and cannot be exchanged for cash.
+                                </li>
+                                <li style="margin:0; font-size:14px; font-family:arial, 'helvetica neue', helvetica, sans-serif; color:#333333;">
+                                    Applicable only for products listed on Rootsraja.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <value model="ir.model.data" search="[('name', '=', 'mail_template_gift_card'), ('module', '=', 'loyalty')]"/>
+            <value eval="{'noupdate': True}" />
+        </function>
+    </data>
+</odoo>

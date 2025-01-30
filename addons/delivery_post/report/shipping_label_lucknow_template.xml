@@ -1,0 +1,55 @@
+<odoo>
+    <template id="report_shipping_label_lucknow">
+        <t t-call="web.external_layout_shipping">
+		<main>
+            <t t-foreach="docs" t-as="p">
+            <div class="border border-dark mx-auto w-75 fs-6">
+				<div class="p-2">
+					<div class="border border-black w-100 p-3 d-flex">
+						<div class="w-50">
+							<img class="mb-2" src="https://rootsraja.s3.amazonaws.com/RootsRaja-02.png" width="115" height="60"/>
+							<div>Weight: <span t-esc="p.shipping_weight * 1000"/> g</div>
+							<div>(L,B,H) in cm: (17.15,17.15,60.96)</div>
+						</div>
+						<div class="w-50 text-end">
+							<div class="fs-3 fw-bold">
+								<img t-att-src="'data:image/png;base64,' + (context.get('qr_code_image') or '')" alt="Gift Message QR Code" class="img-fluid" style="max-width: 120px; height: 100px;"/> 
+							</div>
+							<div class="float-end pt-1">
+								<span t-field="p.name"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="p-0">
+					<div class="border-top border-dark w-100 d-flex">
+						<div class="w-50 p-3">
+							<div class="fs-3 fw-bold mb-2">From</div>
+							<div>
+								<div><span t-field="p.company_id.name"/></div>
+								<div><span t-field="p.company_id.street"/></div>
+								<div><span t-field="p.company_id.street2"/></div>
+								<div><span t-field="p.company_id.zip"/>, <span t-field="p.company_id.state_id.name"/></div>
+								<div><span t-field="p.company_id.city"/></div>
+								<div>Ph:<span t-field="p.company_id.phone"/></div>
+							</div>
+						</div>
+						<div class="w-50 p-3 border-start border-dark">
+							<div class="fs-3 fw-bold mb-2">To</div>
+							<div><span t-field="p.partner_shipping_id.name"/></div>
+							<div><span t-field="p.partner_shipping_id.street"/></div>
+							<div><span t-field="p.partner_shipping_id.street2"/></div>
+							<div><span t-field="p.partner_shipping_id.city"/></div>
+							<div><span t-field="p.partner_shipping_id.state_id.name"/>
+								-<span t-field="p.partner_shipping_id.country_id.name"/></div>
+							<div>SO-<span t-field="p.partner_shipping_id.zip"/></div>
+							<div>Ph:<span t-field="p.partner_shipping_id.phone"/></div>
+						</div>
+					</div>
+				</div>
+            </div>
+            </t>
+		</main>
+        </t>
+    </template>
+</odoo>

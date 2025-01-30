@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <function name="write" model="ir.model.data">
+            <value model="ir.model.data" search="[('name', '=', 'email_template_edi_invoice'), ('module', '=', 'account')]"/>
+            <value eval="{'noupdate': False}" />
+        </function>
+
+        <record id="account.email_template_edi_invoice" model="mail.template">
+            <field name="subject">Invoice #{{ object.name or 'n/a' }} for Order #{{ object.invoice_origin or 'n/a' }} from "rootsraja.in"</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hi
+                        <t t-if="object.partner_id.parent_id">
+                            <t t-out="object.partner_id.name or ''">Brandon Freeman</t> (<t t-out="object.partner_id.parent_id.name or ''">Azure Interior</t>),
+                        </t>
+                        <t t-else="">
+                            <t t-out="object.partner_id.name or ''">Brandon Freeman</t>,
+                        </t>
+                        <br /><br />
+                        Please find attached the invoice for your recent purchase. Below are the details of your order:
+                        <br/>
+                        <t t-if="object.invoice_origin">
+                            Order Number: <span style="font-weight:bold;" t-out="object.invoice_origin"></span>
+                        </t>
+                        <t t-else="">
+                            NA
+                        </t>
+                        <br/>
+                        <t t-if="object.name">
+                            Invoice Number: <span style="font-weight:bold;" t-out="object.name"></span>
+                        </t>
+                        <t t-else="">
+                            NA
+                        </t>
+                        <br/>
+                        <t t-if="object.invoice_origin">
+                            Invoice Amount: <span style="font-weight:bold;" t-out="format_amount(object.amount_total + object.delivery_charge, object.currency_id)"></span>
+                        </t>
+                        <t t-else="">
+                            NA
+                        </t>
+                        <br/>
+                        <t t-if="object.payment_state in ('paid', 'in_payment')">
+                            Payment Status: <span style="font-weight:bold;">Paid</span>
+                        </t>
+                        <t t-else="">
+                            Payment Status: <span style="font-weight:bold;">Not Paid</span>
+                        </t>
+                        <br/><br/>
+                        Should you require any further information or assistance, please do not hesitate to contact us.
+                        <br/><br/>
+                        Thank you for your valued business with "rootsraja".
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <function name="write" model="ir.model.data">
+            <value model="ir.model.data" search="[('name', '=', 'email_template_edi_invoice'), ('module', '=', 'account')]"/>
+            <value eval="{'noupdate': True}" />
+        </function>
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="barcode_report" model="ir.actions.report">
+            <field name="name">Product Barcodes</field>
+            <field name="model">product.product</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pick_pack.barcode_report_template</field>
+            <field name="report_file">pick_pack.barcode_report_template</field>
+            <field name="print_report_name">"Product Barcodes"</field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

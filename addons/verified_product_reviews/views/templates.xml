@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="review_denied" name="Review Denied">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="alert alert-warning">
+                    <strong>Access Denied!</strong>
+                    <p><t t-esc="error_message"/></p>
+                </div>
+                <a href="/" class="btn btn-primary">Return to Home</a>
+            </div>
+        </t>
+    </template>
+</odoo>

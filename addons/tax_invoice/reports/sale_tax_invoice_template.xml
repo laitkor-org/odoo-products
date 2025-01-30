@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_sale_tax_invoice">
+        <t t-call="web.external_layout_tax_invoice">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <main>
+                    <br/>
+                    <hr/>
+                    <div class="row align items-center text-center">
+                        <h4><b>Tax Invoice</b></h4>
+                    </div>
+                    <hr/>
+                    <div class="row align-items-end">
+                        <div class="col-6"  style="word-wrap: break-word; overflow-wrap: break-word;">       
+                            <h5 class="mb-2" style="font-size:22px; font-weight:medium;">Billed To:</h5>
+                            <p><b>Name:</b><span class="list-group-item border-0 d-inline" t-field="o.partner_invoice_id.name"/></p>
+                            <div class="d-flex pb-3">
+                                <div class="me-2"><b>Address:</b></div>
+                                <div class="border-0 me-5" t-field="o.partner_invoice_id.contact_address"></div>
+                            </div>
+                            <p><b>State:</b><span class="list-group-item border-0 d-inline" t-field="o.partner_invoice_id.state_id.name"/></p>
+                            <p><b>Pincode:</b><span class="list-group-item border-0 d-inline" t-field="o.partner_invoice_id.zip"/></p>
+                        </div>
+                        <div class="col-6">
+                            <div class="float-end d-inline-block">
+                            <p><b>Invoice Date:</b><span class="list-group-item border-0 d-inline" t-field="o.date_order"/></p>
+                            <p><b>Tax Invoice Number:</b><span class="list-group-item border-0 d-inline" t-field="o.tax_number"/></p>
+                            <p><b>GSTIN:</b><span class="list-group-item border-0 d-inline" t-field="o.partner_invoice_id.vat"/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <table class="table table-striped text-end table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">S.No.</th>
+                                <th class="text-center">Description of Goods</th>
+                                <th class="text-center">HSN/SAC Code</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-center">Rate (₹)</th>
+                                <th class="text-center">Amount (₹)</th>
+                                <t t-if="o.same_state">
+                                    <th class="text-center">CGST (₹)<p style="margin:0px;">(2.5%)</p></th>
+                                    <th class="text-center">SGST (₹)<p style="margin:0px;">(2.5%)</p></th>
+                                </t>
+                                <t t-else="">
+                                    <th class="text-center">IGST (₹)<p style="margin:0px;">(5%)</p></th>
+                                </t>
+                                <th class="text-center">Total (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="counter" t-value="0"/>
+                            <t t-set="total_qty" t-value="0"/>
+                            <t t-set="total_amount" t-value="0"/>
+                            <t t-set="total_cgst" t-value="0"/>
+                            <t t-set="total_sgst" t-value="0"/>
+                            <t t-set="total_igst" t-value="0"/>
+                            <t t-set="total_price" t-value="0"/>
+                            <tr t-foreach="o.order_line" t-as="line">
+                                <t t-if="line.product_id.name != 'Standard delivery'">
+                                    <td class="text-center"><span t-esc="counter + 1"/></td>
+                                    <td class="text-center"><span t-field="line.product_id.name"/></td>
+                                    <td class="text-center">0602</td>
+                                    <td class="text-center">
+                                        <span t-field="line.product_uom_qty"/>
+                                        <t t-set="total_qty" t-value="total_qty + line.product_uom_qty"/>
+                                    </td>
+                                    <td class="text-center"><span t-field="line.price_unit"/></td>
+                                    <td class="text-center">
+                                        <span t-esc="line.price_subtotal"/>
+                                        <t t-set="total_amount" t-value="round((total_amount + line.price_subtotal), 2)"/>
+                                    </td>
+                                    <t t-if="o.same_state">
+                                        <td class="text-center">
+                                            <t t-esc="round(line.price_subtotal * 0.025, 2)"/>
+                                            <t t-set="total_cgst" t-value="round((total_cgst + line.price_subtotal * 0.025), 2)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="round(line.price_subtotal * 0.025, 2)"/>
+                                            <t t-set="total_sgst" t-value="round((total_sgst + line.price_subtotal * 0.025), 2)"/>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td class="text-center">
+                                            <t t-esc="round(line.price_subtotal * 0.05, 2)"/>
+                                            <t t-set="total_igst" t-value="round((total_igst + line.price_subtotal * 0.05), 2)"/>
+                                        </td>
+                                    </t>
+                                    <td class="text-center">
+                                        <span t-esc="line.price_total"/>
+                                        <t t-set="total_price" t-value="round((total_price + line.price_total), 2)"/>
+                                    </td>
+                                    <t t-set="counter" t-value="counter + 1"/>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><strong>Total</strong></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"><strong t-esc="total_qty"/></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"><strong t-esc="round(total_amount, 2)"/></td>
+                                <t t-if="o.same_state">
+                                    <td class="text-center"><strong t-esc="round(total_cgst, 2)"/></td>
+                                    <td class="text-center"><strong t-esc="round(total_sgst, 2)"/></td>
+                                </t>
+                                <t t-else="">
+                                    <td class="text-center"><strong t-esc="round(total_igst, 2)"/></td>
+                                </t>
+                                <td class="text-center"><strong t-esc="round(total_price, 2)"/></td>
+                            </tr>
+                            <tr>
+                                <!-- <td colspan="9" class="text-end">
+                                    <strong class="me-2">Shipping charge</strong>
+                                    <span t-out="o.delivery_charge" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td> -->
+                                 <td colspan="9" class="text-end">
+                                    <strong class="me-2">Shipping charge</strong>
+                                    <span t-esc="0.00" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="9" class="text-end">
+                                    <strong class="me-2">Total Amount</strong>
+                                    <span t-out="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <p><strong>Amount in Words:</strong> <span t-out="o.amount_total_in_words"/></p> -->
+
+                    <div class="row mt-5">
+                        <div class="col-8 pe-3">
+                        <div class="mb-2"><b>Terms and Conditions</b></div>
+                        <ol class="justify-content" style="text-align:justify;">
+                            <div class="mb-1"><li>Goods once sold will not be taken back.</li></div>
+                            <div class="mb-1 col-8"><li>Any complaints regarding the plants must be made within 24 hours of delivery.</li></div>
+                            <div class="mb-1"><li>GST is applicable as per government norms.</li></div>
+                        </ol>
+                        </div>
+                        <div class="col-4">
+                            <div class="float-end mb-3 flex" style="white-space: nowrap;">
+                                For Laitkor Consultancy Services Pvt. Ltd.
+                            </div>
+                            <div class="float-end mb-3" style="border-bottom: 1.5px dotted black; height: 60px; width: 200px; background-color: #e6e6e6"></div>
+                            <div class="float-end">
+                                Authorized Signatory
+                            </div>
+                        </div>
+                    </div>
+                    </main>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

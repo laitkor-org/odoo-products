@@ -1,0 +1,26 @@
+<odoo>
+    <template id="chatbot_template" inherit_id="website.layout">
+        <xpath expr="//body" position="inside">
+            <div id="chatPopup" style="display:none;">
+                <div id="chatHeader">
+                    <h4>Chat with Us</h4>
+                    <button id="closeChat">&#215;</button>
+                </div>
+                <div id="chatMessages">
+                    <div class="bot-reply">
+                        Hi, Welcome to Roots Raja!
+                    </div>
+                </div>
+                <div id="chatInputContainer">
+                    <input type="text" id="chatInput" placeholder="Type a message..." />
+                    <button id="sendButton">Send</button>
+                </div>
+            </div>
+
+            <div id="chatIcon" class="chatIcon">
+                <img class="rounded-circle" src="/chatbot_custom/static/images/chatIcon.png"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+
