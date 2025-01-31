@@ -23,6 +23,7 @@
             <tree string="SEO Friendly URLs">
                 <field name="seo_friendly_url"/>
                 <field name="original_url"/>
+                <field name="fetch_content" placeholder="Content Fetching" readonly="1"/>
                 <field name="create_date" string="Created On"/>
             </tree>
         </field>
@@ -38,6 +39,7 @@
                     <group>
                         <field name="seo_friendly_url" required="1" placeholder="Enter the SEO-friendly URL"/>
                         <field name="original_url" required="1" placeholder="Enter the original URL"/>
+                        <field name="fetch_content" placeholder="Enable content fetching instead of redirection"/>
                     </group>
                     <group>
                         <field name="created_at" string="Created On" readonly="1"/>

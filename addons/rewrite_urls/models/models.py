@@ -10,6 +10,7 @@ class rewrite_urls(models.Model):
     name = fields.Char('Name')
     original_url = fields.Char('Original URL', required=True)
     seo_friendly_url = fields.Char('SEO-Friendly URL', required=True)
+    fetch_content = fields.Boolean(string="Fetch Content Instead of Redirecting", default=False)
     created_at = fields.Datetime(string='Created At', default=fields.Datetime.now)
     updated_at = fields.Datetime(string='Updated At', default=fields.Datetime.now)
     @api.constrains('seo_friendly_url')
