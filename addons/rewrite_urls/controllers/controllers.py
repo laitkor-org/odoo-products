@@ -140,8 +140,6 @@ from reportlab.pdfgen import canvas
 from io import BytesIO
 import base64
 
-_logger = logging.getLogger(__name__)
-
 class CustomWebsiteSale(WebsiteSale):
 
     @http.route([
@@ -150,18 +148,15 @@ class CustomWebsiteSale(WebsiteSale):
     '/shop/category/<path:seo_friendly_url>'
     ], auth='public', website=True)
     def handle_seo_urls(self, seo_friendly_url, **kwargs):
-        _logger.info(f"Received SEO-friendly URL: {seo_friendly_url}")
-
+        
         request_path = request.httprequest.path
         search_condition = f"{request_path}" if request_path.startswith(("/shop", "/shop/category")) else f"/{seo_friendly_url}"
-        _logger.info(f"Searching for SEO-friendly URL: {search_condition}")
-
+        
         seo_url = request.env['rewrite_urls.rewrite_urls'].sudo().search([
             ('seo_friendly_url', '=', search_condition)
         ], limit=1)
 
         if seo_url:
-            _logger.info(f"Found SEO URL: {seo_url.original_url}, Fetch Content: {seo_url.fetch_content}")
             if seo_url.fetch_content:
                 if request_path.startswith("/shop/category"):
                     category_id = int(re.split(r'[?#]', seo_url.original_url.split('-')[-1])[0])
@@ -169,20 +164,16 @@ class CustomWebsiteSale(WebsiteSale):
                 return self.find_template(seo_friendly_url, **kwargs)
             return request.redirect(seo_url.original_url)
 
-        _logger.warning(f"No matching SEO URL found for: {seo_friendly_url}. Returning 404.")
         return request.not_found()
 
 
     def find_template(self, seo_friendly_url, **kwargs):
         """Handles rendering pages when fetch_content is True"""
-        _logger.info(f"Attempting to render page for SEO-friendly URL: {seo_friendly_url}")
-
+        
         request_path = request.httprequest.path
         is_shop_page = request_path.startswith('/shop')
 
         if is_shop_page:
-            _logger.info("Detected `/shop` URL. Searching for categories and products.")
-
             # Search for a matching URL record
             URLrecord = request.env['rewrite_urls.rewrite_urls'].sudo().search([
                 ('seo_friendly_url', 'ilike', f"/shop/{seo_friendly_url}")
@@ -194,35 +185,25 @@ class CustomWebsiteSale(WebsiteSale):
                 parts = url.split('-')
                 productId = int(re.split(r'[?#]', parts[-1])[0])
             except (ValueError, IndexError) as e:
-                _logger.warning(f"Failed to extract product ID from URL: {url}. Error: {e}")
                 productId = None
 
             if productId:
                 product = request.env['product.template'].sudo().search([('id', '=', productId)], limit=1)
-                _logger.info(f"Product ID: {productId}, Product Name: {product.name if product else 'Not Found'}")
-
                 category = kwargs.pop('category', None)
                 search = kwargs.pop('search', None)
-
-                _logger.info(f"Rendering product page with Category: {category}, Search: {search}")
 
                 if product:
                     return request.render("website_sale.product", self._prepare_product_values(product, category or '', search or '', **kwargs))
 
-            _logger.info(f"No product found for {seo_friendly_url}. Checking for website pages.")
-
             # If no product is found, check for a website page
             page = request.env['website.page'].sudo().search([('url', '=', url)], limit=1)
-            if page and page.view_id:
-                _logger.info(f"Page found: {page.name}, Rendering view: {page.view_id.xml_id or page.view_id.id}")
+            if page and page.view_id:               
                 return request.render(page.view_id.xml_id or page.view_id.id, qcontext=kwargs)
-
-        _logger.warning(f"No matching product or page found for {seo_friendly_url}. Returning 404.")
+        
         return request.render("http_routing.404")
 
     # @route('/shop/category/<path:seo_friendly_url>', auth='public', website=True)
     def shop(self, page=0, category=None, search='', min_price=0.0, max_price=0.0, ppg=False, **post):
-        _logger.info("################## New one route called ##################")
         add_qty = int(post.get('add_qty', 1))
         try:
             min_price = float(min_price)
