@@ -3,7 +3,7 @@
     'name': "rewrite_urls",
     'summary': "Redirect SEO friendly URLs to the original URLs with this module",
     'description': """
-    This module allows us to map SEO friendly URLs with the original URLs.
+        This module allows us to map SEO friendly URLs with the original URLs.
     """,
     'price': 1.99,
     'currency': 'EUR',
