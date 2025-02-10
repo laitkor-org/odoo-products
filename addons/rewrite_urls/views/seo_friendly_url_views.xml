@@ -1,6 +1,6 @@
 <odoo>
    <record id="action_rewrite_urls" model="ir.actions.act_window">
-        <field name="name">SEO Friendly URL</field>
+        <field name="name">Dashboard</field>
         <field name="res_model">rewrite_urls.rewrite_urls</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
@@ -11,8 +11,8 @@
     </record>
 
     <!-- Menu Item to Access SEO Friendly URLs -->
-    <menuitem id="menu_rewrite_urls_root" name="SEO Management" sequence="10" />
-    <menuitem id="menu_rewrite_urls" name="SEO Friendly URL" parent="menu_rewrite_urls_root" 
+    <menuitem id="menu_rewrite_urls_root" name="URL Slug Optimizer" sequence="10" />
+    <menuitem id="menu_rewrite_urls" name="" parent="menu_rewrite_urls_root" 
               action="action_rewrite_urls" sequence="20" />
 
     <!-- Tree View for SEO Friendly URLs -->
@@ -39,7 +39,7 @@
                     <group>
                         <field name="seo_friendly_url" required="1" placeholder="Enter the SEO-friendly URL"/>
                         <field name="original_url" required="1" placeholder="Enter the original URL"/>
-                        <field name="fetch_content" placeholder="Enable content fetching instead of redirection"/>
+                        <field name="fetch_content" placeholder="Fetching Content"/>
                     </group>
                     <group>
                         <field name="created_at" string="Created On" readonly="1"/>
