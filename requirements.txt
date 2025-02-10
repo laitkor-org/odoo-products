@@ -18,7 +18,7 @@ exceptiongroup==1.2.1
 freezegun==1.1.0
 frozenlist==1.4.1
 geoip2==2.9.0
-gevent==21.8.0
+#gevent==21.8.0
 greenlet==1.1.2
 h11==0.14.0
 html2text==2024.2.25
