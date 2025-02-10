@@ -1,0 +1,53 @@
+<odoo>
+   <record id="action_rewrite_urls" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">rewrite_urls.rewrite_urls</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Manage your SEO-friendly URLs here. You can map original URLs to SEO-friendly versions for better website performance and user experience.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item to Access SEO Friendly URLs -->
+    <menuitem id="menu_rewrite_urls_root" name="URL Slug Optimizer" sequence="10" />
+    <menuitem id="menu_rewrite_urls" name="" parent="menu_rewrite_urls_root" 
+              action="action_rewrite_urls" sequence="20" />
+
+    <!-- Tree View for SEO Friendly URLs -->
+    <record id="view_rewrite_urls_tree" model="ir.ui.view">
+        <field name="name">rewrite_urls.rewrite_urls.tree</field>
+        <field name="model">rewrite_urls.rewrite_urls</field>
+        <field name="arch" type="xml">
+            <tree string="SEO Friendly URLs">
+                <field name="seo_friendly_url"/>
+                <field name="original_url"/>
+                <field name="fetch_content" placeholder="Content Fetching" readonly="1"/>
+                <field name="create_date" string="Created On"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for SEO Friendly URLs -->
+    <record id="view_rewrite_urls_form" model="ir.ui.view">
+        <field name="name">rewrite_urls.rewrite_urls.form</field>
+        <field name="model">rewrite_urls.rewrite_urls</field>
+        <field name="arch" type="xml">
+            <form string="SEO Friendly URL">
+                <sheet>
+                    <group>
+                        <field name="seo_friendly_url" required="1" placeholder="Enter the SEO-friendly URL"/>
+                        <field name="original_url" required="1" placeholder="Enter the original URL"/>
+                        <field name="fetch_content" placeholder="Fetching Content"/>
+                    </group>
+                    <group>
+                        <field name="created_at" string="Created On" readonly="1"/>
+                        <field name="updated_at" string="Updated On" readonly="1"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
