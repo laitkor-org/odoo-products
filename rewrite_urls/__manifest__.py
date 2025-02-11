@@ -44,7 +44,7 @@ Possible Enhancements
     ],
     'license': 'LGPL-3',  # Fixed 'licence' to 'license'
     'images': ['static/description/image.png'],  # Added cover image (thumbnail)
-    'icon': 'static/description/url-slug-optimizer-icon.jpg',  # Added icon
+    'icon': 'static/description/icon.jpg',  # Added icon
     'demo': [],
     'qweb': [],
     'installable': True,
