@@ -10,7 +10,7 @@
     'author': "Laitkor Consultancy Services Pvt. Ltd.",
     'maintainer': "Laitkor Consultancy Services Pvt. Ltd.",
     'category': 'Website',
-    'version': '17.0',
+    'version': ['17.0','18.0','16.0'],
     'depends': ['base', 'website', 'product', 'web'],
     'data': [
         'security/ir.model.access.csv',
