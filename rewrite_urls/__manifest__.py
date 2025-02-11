@@ -47,7 +47,6 @@ Possible Enhancements
     'icon': 'static/icon/url-slug-optimizer-icon.jpg',  # Added icon
     'demo': [],
     'qweb': [],
-    'summary': "This is the summary",
     'installable': True,
     'application': True,
     'auto_install': False,
