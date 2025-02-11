@@ -43,7 +43,7 @@ Possible Enhancements
         'views/seo_friendly_url_views.xml',
     ],
     'license': 'LGPL-3',  # Fixed 'licence' to 'license'
-    'images': ['static/description/slug-optimize-banner.jpg'],  # Added cover image (thumbnail)
+    'images': ['static/description/image.png'],  # Added cover image (thumbnail)
     'icon': 'static/description/url-slug-optimizer-icon.jpg',  # Added icon
     'demo': [],
     'qweb': [],
