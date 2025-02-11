@@ -3,31 +3,39 @@
     'name': "URL Slug Optimizer",
     'summary': "Redirect SEO friendly URLs to the original URLs with this module",
     'description': """
-    <h1>Odoo Controller - Working Explanation</h1>
-    <p>
+    ================
+    Odoo Controller - Working Explanation
+    ================
+    
         This Odoo controller handles custom HTTP requests, allowing data to be retrieved and processed
         from the Odoo backend. It provides endpoints for fetching records and interacting with Odoo models.
-    </p>
-    <h2>Features</h2>
-    <ul>
-        <li>Handles incoming HTTP requests and routes them to the correct functions.</li>
-        <li>Retrieves data from specific Odoo models.</li>
-        <li>Processes input parameters and returns structured JSON responses.</li>
-        <li>Includes error handling for invalid requests.</li>
-    </ul>
-    <h2>Working</h2>
-    <p>
+    
+    ================ 
+    Features 
+    ================
+
+    * Handles incoming HTTP requests and routes them to the correct functions.
+    * Retrieves data from specific Odoo models.
+    * Processes input parameters and returns structured JSON responses.
+    * Includes error handling for invalid requests.
+    
+    ================ 
+    Working 
+    ================
+    
         1. When a request is made to the specified route, the controller extracts any parameters.<br>
         2. It fetches relevant records from the Odoo database using the ORM.<br>
         3. The fetched data is converted into a JSON-compatible format.<br>
         4. A response is returned to the client, providing the requested information or an error message.
-    </p>
-    <h2>Possible Enhancements</h2>
-    <ul>
-        <li>Implement authentication for secured endpoints.</li>
-        <li>Add more error-handling mechanisms to manage invalid data.</li>
-        <li>Optimize database queries to improve performance.</li>
-    </ul>
+    
+    ================ 
+    Possible Enhancements 
+    ================
+    
+        * Implement authentication for secured endpoints.
+        * Add more error-handling mechanisms to manage invalid data.
+        * Optimize database queries to improve performance.
+    
     """,
     'price': 1.99,
     'currency': 'USD',
