@@ -25,7 +25,7 @@
 #             search_condition = f"/shop/{seo_friendly_url}"
 #         else:
 #             search_condition = f"/{seo_friendly_url}"
-#         seo_url = request.env['rewrite_urls.rewrite_urls'].sudo().search([
+#         seo_url = request.env['url_slug_optimizer.url_slug_optimizer'].sudo().search([
 #             ('seo_friendly_url', '=', search_condition)
 #         ], limit=1)
 
@@ -39,7 +39,7 @@
 # # class CustomWebsiteSale(http.Controller):
 #     @http.route('/<path:seo_friendly_url>', auth='public', website=True)
 #     def find_template(self, seo_friendly_url, **kwargs):
-#         URLrecord = request.env['rewrite_urls.rewrite_urls'].sudo().search([
+#         URLrecord = request.env['url_slug_optimizer.url_slug_optimizer'].sudo().search([
 #             ('seo_friendly_url', 'ilike', f"/{seo_friendly_url}")
 #         ], limit=1)
 #         if(URLrecord):
@@ -59,7 +59,7 @@
 #     @http.route('/shop/<string:seo_friendly_url>', auth='public', website=True)
 #     def handle_product_urls(self, seo_friendly_url, **kwargs):
 #         try:
-#             URLrecord = request.env['rewrite_urls.rewrite_urls'].sudo().search([
+#             URLrecord = request.env['url_slug_optimizer.url_slug_optimizer'].sudo().search([
 #                 ('seo_friendly_url', 'ilike', f"/shop/{seo_friendly_url}")
 #             ], limit=1)
 #             if(URLrecord):
@@ -152,7 +152,7 @@ class CustomWebsiteSale(WebsiteSale):
         request_path = request.httprequest.path
         search_condition = f"{request_path}" if request_path.startswith(("/shop", "/shop/category")) else f"/{seo_friendly_url}"
         
-        seo_url = request.env['rewrite_urls.rewrite_urls'].sudo().search([
+        seo_url = request.env['url_slug_optimizer.url_slug_optimizer'].sudo().search([
             ('seo_friendly_url', '=', search_condition)
         ], limit=1)
 
@@ -175,7 +175,7 @@ class CustomWebsiteSale(WebsiteSale):
 
         if is_shop_page:
             # Search for a matching URL record
-            URLrecord = request.env['rewrite_urls.rewrite_urls'].sudo().search([
+            URLrecord = request.env['url_slug_optimizer.url_slug_optimizer'].sudo().search([
                 ('seo_friendly_url', 'ilike', f"/shop/{seo_friendly_url}")
             ], limit=1)
 
