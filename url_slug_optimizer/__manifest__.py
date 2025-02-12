@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "rewrite_urls",
+    'name': "url_slug_optimizer",
     'summary': "Redirect SEO friendly URLs to the original URLs with this module",
     'description': """
     This module allows us to map SEO friendly URLs with the original URLs.
@@ -16,4 +16,3 @@
         'views/seo_friendly_url_views.xml',
     ],
 }
-
