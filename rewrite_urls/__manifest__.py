@@ -42,9 +42,9 @@ Possible Enhancements
         'security/ir.model.access.csv',
         'views/seo_friendly_url_views.xml',
     ],
-    'license': 'LGPL-3',  # Fixed 'licence' to 'license'
-    'images': ['static/description/banner.jpg'],  # Added cover image (thumbnail)
-    'icon': 'static/description/icon.jpg',  # Added icon
+    'license': 'LGPL-3', 
+    'images': ['static/description/banner.jpg'], 
+    'icon': 'static/description/icon.jpg', 
     'demo': [],
     'qweb': [],
     'installable': True,
