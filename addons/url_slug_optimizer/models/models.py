@@ -3,8 +3,8 @@ import re
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class rewrite_urls(models.Model):
-    _name = 'rewrite_urls.rewrite_urls'
+class url_slug_optimizer(models.Model):
+    _name = 'url_slug_optimizer.url_slug_optimizer'
     _description = 'SEO Friendly URL'
 
     name = fields.Char('Name')
