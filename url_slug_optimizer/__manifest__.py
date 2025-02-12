@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "url_slug_optimizer",
+    'name': "URL Slug Otimizer",
     'summary': "Redirect SEO friendly URLs to the original URLs with this module",
     'description': """
     This module allows us to map SEO friendly URLs with the original URLs.
