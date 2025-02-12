@@ -31,7 +31,7 @@ Possible Enhancements
 - Add more error-handling mechanisms to manage invalid data.
 - Optimize database queries to improve performance.
     """,
-    'price': 1.98,
+    'price': 48,
     'currency': 'USD',
     'author': "Laitkor Consultancy Services Pvt. Ltd.",
     'maintainer': "Laitkor Consultancy Services Pvt. Ltd.",
