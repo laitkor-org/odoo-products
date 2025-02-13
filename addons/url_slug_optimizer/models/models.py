@@ -3,13 +3,14 @@ import re
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class rewrite_urls(models.Model):
-    _name = 'rewrite_urls.rewrite_urls'
+class url_slug_optimizer(models.Model):
+    _name = 'url_slug_optimizer.url_slug_optimizer'
     _description = 'SEO Friendly URL'
 
     name = fields.Char('Name')
     original_url = fields.Char('Original URL', required=True)
-    seo_friendly_url = fields.Char('SEO-Friendly URL', required=True)
+    seo_friendly_url = fields.Char('Updated URL', required=True)
+    fetch_content = fields.Boolean(string="Fetch Content", default=False)
     created_at = fields.Datetime(string='Created At', default=fields.Datetime.now)
     updated_at = fields.Datetime(string='Updated At', default=fields.Datetime.now)
     @api.constrains('seo_friendly_url')
