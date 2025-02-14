@@ -1,97 +1,217 @@
 <section>
-    <style>
-        body {
-            background-color: var(--o-gray-100);
-        }
-        .o_hero {
-            background: linear-gradient(135deg, var(--o-brand-primary), var(--o-brand-secondary));
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
-        .o_card {
-            border-radius: 10px;
-            box-shadow: var(--o-box-shadow);
-            background: var(--o-gray-0);
-        }
-        .o_faq .card-header {
-            background-color: var(--o-brand-primary);
-            color: white;
-        }
-        .o_code-box {
+  <section
+    style="background-color: var(--o-gray-100); font-family: Arial, sans-serif"
+  >
+    <div class="container mt-5">
+      <div
+        class="o-hero"
+        style="
+          background: linear-gradient(
+            135deg,
+            var(--o-brand-primary),
+            var(--o-brand-secondary)
+          );
+          color: white;
+          padding: 50px 20px;
+          text-align: center;
+          border-radius: 10px;
+        "
+      >
+        <h1>URL Slug Optimizer</h1>
+        <p class="lead">
+          Enhance your website's SEO and user experience with the URL Slug
+          Optimizer.
+        </p>
+      </div>
+
+      <div
+        class="card o-card mt-4"
+        style="
+          border-radius: 10px;
+          box-shadow: var(--o-box-shadow);
+          background: var(--o-gray-0);
+          padding: 20px;
+        "
+      >
+        <h2 class="text-secondary">Key Features</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Custom Slug Creation: Replace default Odoo slugs with SEO-friendly
+            URLs.
+          </li>
+          <li class="list-group-item">
+            Original Route Preservation: Maintain existing links and website
+            functionality.
+          </li>
+          <li class="list-group-item">
+            Redirection Management: Prevent 404 errors with automatic redirects.
+          </li>
+          <li class="list-group-item">
+            Easy-to-Use Interface: Manage slugs and redirects within Odoo.
+          </li>
+        </ul>
+      </div>
+
+      <div class="o-faq mt-4">
+        <h2 class="text-secondary">FAQs</h2>
+        <div id="faqAccordion">
+          <div
+            class="card o-card"
+            style="
+              border-radius: 10px;
+              box-shadow: var(--o-box-shadow);
+              background: var(--o-gray-0);
+              padding: 20px;
+            "
+          >
+            <div
+              class="card-header"
+              id="headingOne"
+              style="background-color: var(--o-brand-primary); color: white"
+            >
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link btn-faq"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  style="color: white; text-decoration: none"
+                >
+                  Can I use this module with Odoo Online?
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseOne"
+              class="collapse show"
+              data-parent="#faqAccordion"
+            >
+              <div class="card-body">
+                This Odoo app cannot be used with Odoo Online (SaaS).
+              </div>
+            </div>
+          </div>
+          <div
+            class="card o-card"
+            style="
+              border-radius: 10px;
+              box-shadow: var(--o-box-shadow);
+              background: var(--o-gray-0);
+              padding: 20px;
+            "
+          >
+            <div
+              class="card-header"
+              id="headingTwo"
+              style="background-color: var(--o-brand-primary); color: white"
+            >
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link btn-faq"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  style="color: white; text-decoration: none"
+                >
+                  Do I get free support when I buy the module?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+              <div class="card-body">
+                Yes, 60 days of free support is provided for bug fixes or
+                issues.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card o-card mt-4"
+        style="
+          border-radius: 10px;
+          box-shadow: var(--o-box-shadow);
+          background: var(--o-gray-0);
+          padding: 20px;
+        "
+      >
+        <h2 class="text-secondary">User Guide</h2>
+        <h5>Getting Started</h5>
+        <p>
+          1. Install the module in your Odoo system.<br />2. Access the
+          dashboard and click "New" to create a new URL mapping.
+        </p>
+
+        <h5>Creating a URL Mapping</h5>
+        <p>
+          Enter the original and updated URLs. Choose whether to fetch content
+          or redirect.
+        </p>
+
+        <h6 class="text-primary">✅ Correct Format:</h6>
+        <div
+          class="o-code-box"
+          style="
             background-color: var(--o-gray-900);
             color: var(--o-gray-100);
             padding: 10px;
             border-radius: 5px;
             font-family: monospace;
-        }
-    </style>
-    <span href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"></span>
-    <div class="container mt-5">
-        <div class="o_hero">
-            <h1>URL Slug Optimizer</h1>
-            <p class="lead">Enhance your website's SEO and user experience with the URL Slug Optimizer.</p>
+          "
+        >
+          /shop/bougainvillea-glabra-bougainvillea-73#attr=45
         </div>
-        
-        <div class="card o_card mt-4 p-4">
-            <h2 class="text-secondary">Key Features</h2>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Custom Slug Creation: Replace default Odoo slugs with SEO-friendly URLs.</li>
-                <li class="list-group-item">Original Route Preservation: Maintain existing links and website functionality.</li>
-                <li class="list-group-item">Redirection Management: Prevent 404 errors with automatic redirects.</li>
-                <li class="list-group-item">Easy-to-Use Interface: Manage slugs and redirects within Odoo.</li>
-            </ul>
+
+        <h6 class="text-danger">❌ Incorrect Format:</h6>
+        <div
+          class="o-code-box"
+          style="
+            background-color: var(--o-gray-900);
+            color: var(--o-gray-100);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+          "
+        >
+          https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45
         </div>
-        
-        <div class="o_faq mt-4">
-            <h2 class="text-secondary">FAQs</h2>
-            <div id="faqAccordion">
-                <div class="card o_card">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne">
-                                Can I use this module with Odoo Online?
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
-                        <div class="card-body">This Odoo app cannot be used with Odoo Online (SaaS).</div>
-                    </div>
-                </div>
-                <div class="card o_card">
-                    <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseTwo">
-                                Do I get free support when I buy the module?
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
-                        <div class="card-body">Yes, 60 days of free support is provided for bug fixes or issues.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card o_card mt-4 p-4">
-            <h2 class="text-secondary">User Guide</h2>
-            <h5>Getting Started</h5>
-            <p>1. Install the module in your Odoo system.<br>2. Access the dashboard and click "New" to create a new URL mapping.</p>
-            
-            <h5>Creating a URL Mapping</h5>
-            <p>Enter the original and updated URLs. Choose whether to fetch content or redirect.</p>
-            
-            <h6 class="text-primary">✅ Correct Format:</h6>
-            <div class="o_code-box">/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
-            
-            <h6 class="text-danger">❌ Incorrect Format:</h6>
-            <div class="o_code-box">https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
-            
-            <h5>Batch Delete Functionality</h5>
-            <p>Select multiple URLs, click settings, and choose Delete.</p>
-        </div>
+
+        <h5>Batch Delete Functionality</h5>
+        <p>Select multiple URLs, click settings, and choose Delete.</p>
+      </div>
     </div>
     <script src="/web/static/lib/jquery/jquery.js"></script>
     <script src="/web/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </section>
+  <section class="py-5">
+    <div class="container">
+      <div class="row align-items-center gx-4">
+        <div class="col-md-5">
+          <div class="ms-md-2 ms-lg-5">
+            <img
+              class="img-fluid rounded-3"
+              src="https://freefrontend.dev/assets/square.png"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-1">
+          <div class="ms-md-2 ms-lg-5">
+            <span class="text-muted">Our Story</span>
+            <h2 class="display-5 fw-bold">About Us</h2>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud.
+            </p>
+            <p class="lead mb-0">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="/web/static/lib/jquery/jquery.js"></script>
+  <script src="/web/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </section>
