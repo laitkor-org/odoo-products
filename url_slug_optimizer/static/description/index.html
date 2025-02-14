@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Slug Optimizer - Documentation</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/web/static/lib/bootstrap/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: var(--o-gray-100);
         }
-        .hero {
-            background: linear-gradient(135deg, #007bff, #6610f2);
+        .o_hero {
+            background: linear-gradient(135deg, var(--o-brand-primary), var(--o-brand-secondary));
             color: white;
             padding: 50px 20px;
             text-align: center;
             border-radius: 10px;
         }
-        .card {
+        .o_card {
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--o-box-shadow);
+            background: var(--o-gray-0);
         }
-        .faq-section .card-header {
-            background-color: #007bff;
+        .o_faq .card-header {
+            background-color: var(--o-brand-primary);
             color: white;
         }
-        .code-box {
-            background-color: #343a40;
-            color: #f8f9fa;
+        .o_code-box {
+            background-color: var(--o-gray-900);
+            color: var(--o-gray-100);
             padding: 10px;
             border-radius: 5px;
             font-family: monospace;
@@ -35,13 +36,13 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="hero">
-            <h2>URL Slug Optimizer</h2>
+        <div class="o_hero">
+            <h1>URL Slug Optimizer</h1>
             <p class="lead">Enhance your website's SEO and user experience with the URL Slug Optimizer.</p>
         </div>
         
-        <div class="card mt-4 p-4">
-            <h3 class="text-secondary">Key Features</h3>
+        <div class="card o_card mt-4 p-4">
+            <h2 class="text-secondary">Key Features</h2>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Custom Slug Creation: Replace default Odoo slugs with SEO-friendly URLs.</li>
                 <li class="list-group-item">Original Route Preservation: Maintain existing links and website functionality.</li>
@@ -50,10 +51,10 @@
             </ul>
         </div>
         
-        <div class="faq-section mt-4">
-            <h3 class="text-secondary">FAQs</h3>
+        <div class="o_faq mt-4">
+            <h2 class="text-secondary">FAQs</h2>
             <div id="faqAccordion">
-                <div class="card">
+                <div class="card o_card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne">
@@ -65,7 +66,7 @@
                         <div class="card-body">This Odoo app cannot be used with Odoo Online (SaaS).</div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card o_card">
                     <div class="card-header" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseTwo">
@@ -80,25 +81,25 @@
             </div>
         </div>
         
-        <div class="card mt-4 p-4">
-            <h3 class="text-secondary">User Guide</h3>
-            <h6>Getting Started</h6>
+        <div class="card o_card mt-4 p-4">
+            <h2 class="text-secondary">User Guide</h2>
+            <h5>Getting Started</h5>
             <p>1. Install the module in your Odoo system.<br>2. Access the dashboard and click "New" to create a new URL mapping.</p>
             
-            <h6>Creating a URL Mapping</h6>
+            <h5>Creating a URL Mapping</h5>
             <p>Enter the original and updated URLs. Choose whether to fetch content or redirect.</p>
             
             <h6 class="text-primary">✅ Correct Format:</h6>
-            <div class="code-box">/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
+            <div class="o_code-box">/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
             
             <h6 class="text-danger">❌ Incorrect Format:</h6>
-            <div class="code-box">https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
+            <div class="o_code-box">https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45</div>
             
             <h5>Batch Delete Functionality</h5>
             <p>Select multiple URLs, click settings, and choose Delete.</p>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/web/static/lib/jquery/jquery.js"></script>
+    <script src="/web/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
