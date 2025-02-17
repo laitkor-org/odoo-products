@@ -96,19 +96,23 @@
         <h2 class="text-primary">Key Features</h2>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            ✅ Custom Slug Creation: Replace default Odoo slugs with
-            SEO-friendly URLs.
+            ✅ Custom Slug Creation: Replace default Odoo slugs with custom,
+            human-readable, and SEO-friendly URLs, often resulting in shorter,
+            more shareable links.
           </li>
           <li class="list-group-item">
-            ✅ Original Route Preservation: Maintain existing links and website
-            functionality.
+            ✅ Original Route Preservation: Ensure existing links and internal
+            website functionality remain intact even after slug modification.
           </li>
           <li class="list-group-item">
-            ✅ Redirection Management: Prevent 404 errors with automatic
-            redirects.
+            ✅ Redirection Management: Automatically create redirects from old
+            URLs to new ones, preventing 404 errors and maintaining SEO
+            rankings. Manage redirects manually or let the system handle them
+            automatically.
           </li>
           <li class="list-group-item">
-            ✅ Easy-to-Use Interface: Manage slugs and redirects within Odoo.
+            ✅ Easy-to-Use Interface: Intuitive interface for managing slugs and
+            redirects within Odoo.
           </li>
         </ul>
       </div>
@@ -390,16 +394,38 @@
             </h2>
             <h5>Getting Started</h5>
             <p>
-              1. Install the module in your Odoo system.<br />
-              2. Access the dashboard and click "New" to create a new URL
+              <b>Install the Module</b>– Begin by installing the URL Slug
+              Optimizer module in your Odoo system.
+            </p>
+            <p>
+              <b>Access the Dashboard</b> – Once installed, you will land on the
+              dashboard page. Click on the "New" button to create a new URL
               mapping.
             </p>
 
             <h5>Creating a URL Mapping</h5>
             <p>
-              Enter the original and updated URLs. Choose whether to fetch
-              content or redirect.
+              After clicking <b>"New"</b>, you will be redirected to a page
+              where you can:
             </p>
+            <ul>
+              <li>Enter the <b>Original URL</b></li>
+              <li>Enter the <b>Updated URL</b></li>
+              <li>
+                Choose whether to fetch content from the updated URL or simply
+                <b>redirect</b> (default option).
+              </li>
+            </ul>
+
+            <h3>Important Guidelines for URL Formatting</h3>
+            <ul>
+              <li>
+                The URL should
+                <b> not </b>
+                include the domain name.
+              </li>
+              <li>It must start with a <b> slash (/). </b></li>
+            </ul>
 
             <h6 class="text-success mt-2">✅ Correct Format:</h6>
             <div
@@ -502,7 +528,9 @@
                   <b>If "Fetch Content" is Unchecked:</b> The system will
                   redirect to the updated URL without fetching content.
                 </p>
-                <a href="https://screenrec.com/share/uM2rneXiBO">▶️ Example Video</a>
+                <a href="https://screenrec.com/share/uM2rneXiBO"
+                  >▶️ Example Video</a
+                >
                 <p>
                   <b>If "Fetch Content" is Checked:</b> The system will
                   dynamically fetch and display content from the updated URL.
@@ -513,7 +541,10 @@
             <hr class="d-lg-none" />
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5 mb-5">
               <h3 class="my-2">Example Workflow</h3>
-              <img src="example-workflow.png" style="width: 100%; border-radius: 15px" />
+              <img
+                src="example-workflow.png"
+                style="width: 100%; border-radius: 15px"
+              />
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5 mb-5">
