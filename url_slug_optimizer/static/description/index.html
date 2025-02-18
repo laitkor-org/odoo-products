@@ -380,7 +380,7 @@
           role="tabpanel"
         >
           <!-- User Guide -->
-          <div
+          <!-- <div
             class="card o-card mt-4"
             style="
               border-radius: 10px;
@@ -393,21 +393,20 @@
               User Guide
             </h2>
             <h5>Getting Started</h5>
-            <p>
-              <b>Install the Module</b>– Begin by installing the URL Slug
-              Optimizer module in your Odoo system.
-            </p>
-            <p>
-              <b>Access the Dashboard</b> – Once installed, you will land on the
-              dashboard page. Click on the "New" button to create a new URL
-              mapping.
-            </p>
-
-            <h5>Creating a URL Mapping</h5>
-            <p>
-              After clicking <b>"New"</b>, you will be redirected to a page
-              where you can:
-            </p>
+            <ul>
+              <li><b>
+                Install the Module
+              </b>
+              – Begin by installing the URL Slug Optimizer module in your Odoo system.
+              </li>
+              <li><b>
+                Access the Dashboard </b>
+                 – Once installed, you will land on the dashboard page. Click on the
+                <b>"New" </b>
+                   button to create a new URL mapping.
+              </li>
+            </ul>
+           
             <ul>
               <li>Enter the <b>Original URL</b></li>
               <li>Enter the <b>Updated URL</b></li>
@@ -417,47 +416,8 @@
               </li>
             </ul>
 
-            <h3>Important Guidelines for URL Formatting</h3>
-            <ul>
-              <li>
-                The URL should
-                <b> not </b>
-                include the domain name.
-              </li>
-              <li>It must start with a <b> slash (/). </b></li>
-            </ul>
-
-            <h6 class="text-success mt-2">✅ Correct Format:</h6>
-            <div
-              class="o-code-box"
-              style="
-                background-color: #212529;
-                color: #f8f9fa;
-                padding: 10px;
-                border-radius: 5px;
-                font-family: monospace;
-              "
-            >
-              /shop/bougainvillea-glabra-bougainvillea-73#attr=45
-            </div>
-
-            <h6 class="text-danger mt-2">❌ Incorrect Format:</h6>
-            <div
-              class="o-code-box"
-              style="
-                background-color: #212529;
-                color: #f8f9fa;
-                padding: 10px;
-                border-radius: 5px;
-                font-family: monospace;
-              "
-            >
-              https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45
-            </div>
-
-            <h5 class="mt-2">Batch Delete Functionality</h5>
-            <p>Select multiple URLs, click settings, and choose Delete.</p>
-          </div>
+            
+          </div> -->
           <!-- End User Guide -->
           <div class="row text-dark">
             <!-- Screenshot Start -->
@@ -512,6 +472,53 @@
                 style="width: 100%; border-radius: 15px"
               />
             </div>
+            <div class="col-lg-8 col-sm-12 mt-5 mb-5">
+            <h3>Important Guidelines for URL Formatting</h3>
+            <ul>
+              <li>
+                The URL should
+                <b> not </b>
+                include the domain name.
+              </li>
+              <li>It must start with a <b> slash (/). </b></li>
+            </ul>
+
+            <h6 class="text-success mt-2">✅ Correct Format:</h6>
+            <div
+              class="o-code-box"
+              style="
+                background-color: #212529;
+                color: #f8f9fa;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: monospace;
+              "
+            >
+              /shop/bougainvillea-glabra-bougainvillea-73#attr=45
+            </div>
+
+            <h6 class="text-danger mt-2">❌ Incorrect Format:</h6>
+            <div
+              class="o-code-box"
+              style="
+                background-color: #212529;
+                color: #f8f9fa;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: monospace;
+              "
+            >
+              https://stage.rootsraja.in/shop/bougainvillea-glabra-bougainvillea-73#attr=45
+            </div>
+            <p>
+              Once you have entered the details, click
+              <b>
+                Save 
+              </b>
+             to activate the module.
+            </p>
+
+          </div>
 
             <hr class="d-lg-none" />
 
@@ -528,9 +535,9 @@
                   <b>If "Fetch Content" is Unchecked:</b> The system will
                   redirect to the updated URL without fetching content.
                 </p>
-                <a class="button shadow" target="_blank" href="https://www.youtube.com/watch?v=HdcLE8JuMrA" style="border-radius:20px; padding:4%; font-weight:bold; font-size:15px; color:#000; border:3px solid #3497DB; margin-left:2%; width:30%">
-                  <div style="border:2px solid #3497DB; border-radius:15px; margin:-20px; padding:11%; font-size:16px"> VIDEO TUTORIAL </div>
-                </a>
+                
+                ▶️ Example Video
+                <p>
                   <b>If "Fetch Content" is Checked:</b> The system will
                   dynamically fetch and display content from the updated URL.
                 </p>
@@ -562,11 +569,11 @@
                 On the dashboard, you can also delete multiple URL mappings in
                 bulk:
               </p>
-              <ul>
+              <ol>
                 <li>Select the URLs you want to delete.</li>
                 <li>Click on the <b>Settings</b> icon.</li>
-                <li>Choose Delete to remove the selected URLs.</li>
-              </ul>
+                <li>Choose <b>Delete</b> to remove the selected URLs.</li>
+              </ol>
               <p class="mb-2">
                 This feature helps manage and optimize URLs efficiently.
               </p>
