@@ -60,6 +60,11 @@
       color: #333;
     "
   >
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+    console.log(link.outerHTML); // Check if any script modifies it
+});
+  </script>
     <!-- Hero Section -->
     <section
       style="
