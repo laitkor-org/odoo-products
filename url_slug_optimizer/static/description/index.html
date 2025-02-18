@@ -60,11 +60,6 @@
       color: #333;
     "
   >
-  <script>
-    document.querySelectorAll("a").forEach(link => {
-    console.log(link.outerHTML); // Check if any script modifies it
-});
-  </script>
     <!-- Hero Section -->
     <section
       style="
@@ -534,10 +529,11 @@
                   redirect to the updated URL without fetching content.
                 </p>
                 ▶️ Example Video
-                <a class="button shadow" target="_blank" href="https://screenrec.com/share/uM2rneXiB" style="border-radius:20px; padding:4%; font-weight:bold; font-size:15px; color:#000; border:3px solid #3497DB; margin-left:2%; width:30%">
-                  <div style="border:2px solid #3497DB; border-radius:15px; margin:-20px; padding:11%; font-size:16px"> VIDEO TUTORIAL </div>
-                </a>
-                <iframe src="https://screenrec.com/share/uM2rneXiBO" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+                <p>
+                  <a href="video.mp4" target="_blank" >
+                    ▶️ Example Video
+                  </a>
+                </p>
               
                 <p>
                   <b>If "Fetch Content" is Checked:</b> The system will
