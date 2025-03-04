@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="chatbot_assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/chatbot_n8n/static/src/js/chatbot.js"/>
+            <link rel="stylesheet" href="/chatbot_n8n/static/src/css/chatbot.css"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="chatbot_n8n_ui" name="Chatbot UI">
+        <t t-call="website.layout">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="/chatbot_n8n/static/src/js/chatbot.js"/>
+            <link rel="stylesheet" href="/chatbot_n8n/static/src/css/chatbot.css"/>
+            <!-- <t t-set="title">Video Consultation</t> -->
+            <div id="wrap">
+                <section id="s_comparisons" class="o_colored_level">
+                    <div>
+                    <div class="hero-section">
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-12 text-center">
+                            <h1>Video Consultation with RootsRaja Experts</h1>
+                            <p class="mb-0">Write one or two paragraphs describing your product, services or a specific feature.</p>
+                            <p>To be successful your content needs to be useful to your readers.</p>
+                            <a class="btn btn-primary" href="#book-your-appointment">Book Now</a>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="container ">
+                        <div class="row py-5">
+                            <div class="col-12 text-center">
+                            <p>We understand that every plant lover has unique questions and challenges. Whether you're a beginner or a seasoned gardener, our team of expert horticulturists and plant doctors is here to help you grow your green oasis.</p>
+
+                            <p>With our Video Consultation service, you can now connect with our experts in real-time, share your plant concerns, and receive tailored advice to keep your plants thriving. </p>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container py-5">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                            <img class="img img-fluid mx-auto" src="/chatbot_n8n/static/images/Why-RootsRaja.png" />
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                            <h1 class="title">Why Choose RootsRaja Video Consultation?</h1>
+                            <ul>
+                                <li><strong>Expert Guidance:</strong> Consult with certified plant doctors and gardening experts.</li>
+                                <li><strong>Personalized Solutions:</strong> Get advice tailored to your specific plants and conditions.</li>
+                                <li><strong>Convenient &#x26; Easy:</strong> Connect from anywhere, anytime, via video call.</li>
+                                <li><strong>Quick Problem Resolution:</strong> Diagnose plant issues and get actionable solutions instantly.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container py-5">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                            <h1 class="title">How It Works</h1>
+                            <ul>
+                                <li><strong>Book a Slot:</strong> Choose a convenient date and time for your consultation.</li>
+                                <li><strong>Make Payment:</strong> Secure your slot with a nominal fee.</li>
+                                <li><strong>Join the Call:</strong> Connect with our expert via video link at the scheduled time.</li>
+                                <li><strong>Get Solutions:</strong> Share your plant concerns, show your garden, and receive expert advice.</li>
+                            </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <img class="img img-fluid mx-auto" src="/chatbot_n8n/static/images/how-works.png" />
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container py-5">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                            <img class="img img-fluid mx-auto" src="/chatbot_n8n/static/images/What-Discuss.png" />
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                            <h1 class="title">What You Can Discuss During the Consultation</h1>
+                            <ul>
+                                <li>Diagnosing plant diseases and pests</li>
+                                <li>Soil health and fertilization tips</li>
+                                <li>Pruning and plant care techniques</li>
+                                <li>Indoor and outdoor gardening advice  </li>
+                                <li>Seasonal gardening tips  </li>
+                                <li>Solutions for yellowing leaves, stunted growth, and more</li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container pricing py-5">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                            <h1 class="title text-center">Pricing</h1>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="card text-center">
+                                <div class="card-header" style="background:#e2e5e8;">
+                                15 Minute Consultation
+                                </div>
+                                <div class="card-body">
+                                <h6 class="d-flex align-items-center justify-content-center">₹ <span style="font-size: 80px;">99</span>.00</h6>
+                                <p>/consultation</p>
+                                </div>
+                                <div class="card-footer" style="background:#e2e5e8;">
+                                <a class="btn btn-primary" href="#book-your-appointment">Book Now</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="card text-center">
+                                <div class="card-header" style="background:#e2e5e8;">
+                                30 Minute Consultation
+                                </div>
+                                <div class="card-body">
+                                <h6 class="d-flex align-items-center justify-content-center">₹ <span style="font-size: 80px;">198</span>.00</h6>
+                                <p>/consultation</p>
+                                </div>
+                                <div class="card-footer" style="background:#e2e5e8;">
+                                <a class="btn btn-primary" href="#book-your-appointment">Book Now</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="m-5 p-5 ">
+                            <div class="row justify-content-center">
+                                <iframe id="book-your-appointment" class="shadow shadow-lg" src="https://n8n-rahul.dealopia.com/webhook/96f0133b-832f-4fe9-91cf-970d72cfbc37/chat"
+                                        width="100%" height="600px" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How do I book a consultation?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    Simply click the "Book Now" button, select your preferred slot, and make the payment.
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What do I need for the consultation?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    A smartphone or laptop with a camera and a stable internet connection.
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Can I show my plants during the call?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    Yes! Our experts will ask you to show your plants to diagnose issues accurately.
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Is this service suitable for beginners?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    Yes! Whether you’re a beginner or an experienced gardener, our plant doctors are here to guide you.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="calltoaction">
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-12 text-center text-white">
+                                <h1>Ready to Grow Your Green Paradise?</h1>
+                                <p>Book your video consultation now and let RootsRaja’s experts guide you to gardening success! </p>
+                                <a class="btn btn-light" href="#book-your-appointment">Book Now</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+
+                    
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
